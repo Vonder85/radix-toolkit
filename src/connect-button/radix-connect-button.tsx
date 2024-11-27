@@ -8,6 +8,7 @@ interface RadixConnectButtonProps {
 const RadixConnectButton: React.FC<RadixConnectButtonProps> = ({rdt}) => {
 
   const handleConnect = async () => {
+    console.log(rdt)
     try {
       // Définir les données demandées
       rdt.walletApi.setRequestData((builder: DataRequestBuilder) =>
