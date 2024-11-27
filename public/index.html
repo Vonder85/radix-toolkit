@@ -40,20 +40,15 @@
 <div id="app"></div>
 
 <script src="https://www.unpkg.com/@radixdlt/radix-dapp-toolkit@2.1.0/dist/radix-dapp-toolkit.bundle.umd.cjs"></script>
-<script type="module">
-    import {
-        RadixDappToolkit,
-        RadixNetwork,
-        Logger
-    } from "https://www.unpkg.com/@radixdlt/radix-dapp-toolkit@2.1.0/dist/radix-dapp-toolkit.bundle.umd.cjs";
+<script>
 
-    const rdt = RadixDappToolkit({
+    const rdt = window.RDT.RadixDappToolkit({
         dAppDefinitionAddress:
             'account_rdx128uazakd5z2707m8t640swdvce3wnc4h8f38wmmq7fmqhdetcdpytu',
-        networkId: RadixNetwork.Mainnet,
+        networkId: window.RDT.RadixNetwork.Mainnet,
         applicationName: 'Radix Web3 dApp',
         applicationVersion: '1.0.0',
-        logger: Logger(3),
+        logger: window.RDT.Logger(3),
     })
     console.log(rdt);
 </script>
