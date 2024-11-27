@@ -39,7 +39,7 @@
 </header>
 <div id="app"></div>
 
-<script src="./radix-dapp-toolkit.bundle.umd.cjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@radixdlt/radix-dapp-toolkit/dist/radix-dapp-toolkit.umd.js"></script>
 <script>
     const rdt = window.RDT.RadixDappToolkit({
         dAppDefinitionAddress:
@@ -47,7 +47,7 @@
         networkId: RDT.RadixNetwork.Mainnet,
         applicationName: 'Radix Web3 dApp',
         applicationVersion: '1.0.0',
-        logger: window.RDT.Logger(1),
+        logger: window.RDT.Logger(3),
     })
     console.log(rdt);
 </script>
