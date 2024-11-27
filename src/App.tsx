@@ -8,7 +8,7 @@ function App() {
    )*/
   const rdt = RadixDappToolkit({
     dAppDefinitionAddress:
-      'account_rdx128uazakd5z2707m8t640swdvce3wnc4h8f38wmmq7fmqhdetcdpytu',
+      'https://radix-toolkit.netlify.app',
     networkId: RadixNetwork.Mainnet,
     applicationName: 'Radix Web3 dApp',
     applicationVersion: '1.0.0',
