@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   DataRequestBuilder,
   generateRolaChallenge,
@@ -8,8 +8,6 @@ import {
 } from '@radixdlt/radix-dapp-toolkit';
 
 const App: React.FC = () => {
-  const [isConnected, setIsConnected] = useState<boolean>(false);
-  const [accounts, setAccounts] = useState<string[]>([]);
 
 
   // Initialiser RadixDappToolkit
