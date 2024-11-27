@@ -13,8 +13,11 @@ const App = () => {
     logger: Logger(3),
   })
   console.log(rdt);
+
+  const walletData = rdt.walletApi.getWalletData()
   return (
     <div>
+      {JSON.stringify(walletData)}
     </div>);
 };
 
