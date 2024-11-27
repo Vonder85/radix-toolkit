@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {generateRolaChallenge, Logger, RadixDappToolkit, RadixNetwork} from "@radixdlt/radix-dapp-toolkit";
+import {Logger, RadixDappToolkit, RadixNetwork} from "@radixdlt/radix-dapp-toolkit";
 
 function App() {
   /* const storageModule = LocalStorageModule(
@@ -25,11 +25,11 @@ function App() {
      }// Pour le Mainnet
    )*/
 
-  const result = rdt.walletApi.provideChallengeGenerator(async () => {
+  /*const result = rdt.walletApi.provideChallengeGenerator(async () => {
     const challenge = await generateRolaChallenge();
     return challenge;
   });
-  console.log(result)
+  console.log(result)*/
 
   return (
     <div className="App">
