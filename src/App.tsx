@@ -24,44 +24,32 @@ const App: React.FC = () => {
 
   // Fonction pour se connecter au Wallet
 
-      // Définir les données demandées (ici les comptes)
-      rdt.walletApi.setRequestData((builder: DataRequestBuilder) =>
-        builder.accounts().exactly(1)
-      );
+  // Définir les données demandées (ici les comptes)
+  rdt.walletApi.setRequestData((builder: DataRequestBuilder) =>
+    builder.accounts().exactly(1)
+  );
 
-      rdt.walletApi.provideChallengeGenerator(async () => generateRolaChallenge())
+  rdt.walletApi.provideChallengeGenerator(async () => generateRolaChallenge())
 
-      rdt.walletApi.setRequestData(
-        DataRequestBuilder.persona().withProof(),
-        DataRequestBuilder.accounts().atLeast(1),
-      )
-      /*
-            if (result.data) {
-              setIsConnected(true);
-              setAccounts(result.data.accounts);
-              console.log('Connected accounts:', result.data.accounts);
-            } else {
-              console.error('Connection failed:', result);
-            }*/
-    }
+  rdt.walletApi.setRequestData(
+    DataRequestBuilder.persona().withProof(),
+    DataRequestBuilder.accounts().atLeast(1),
+  )
+  /*
+        if (result.data) {
+          setIsConnected(true);
+          setAccounts(result.data.accounts);
+          console.log('Connected accounts:', result.data.accounts);
+        } else {
+          console.error('Connection failed:', result);
+        }*/
 
 
   return (
     <div>
       <h1>Radix dApp Connection</h1>
-      {!isConnected ? (
-        <button onClick={connectWallet}>Connect to Radix Wallet</button>
-      ) : (
-        <div>
-          <h2>Connected!</h2>
-          <p>Accounts:</p>
-          <ul>
 
-          </ul>
-        </div>
-      )}
-    </div>
-  );
+    </div>);
 };
 
 export default App;
