@@ -45,7 +45,6 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Radix dApp Connection</h1>
 
     </div>);
 };
