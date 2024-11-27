@@ -1,14 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {DataRequestBuilder, generateRolaChallenge, RadixDappToolkit} from '@radixdlt/radix-dapp-toolkit';
-import {GatewayApiClient} from "@radixdlt/babylon-gateway-api-sdk";
 
 interface RadixConnectButtonProps {
   rdt: ReturnType<typeof RadixDappToolkit>; // Type pour le RadixDappToolkit instance
 }
 
 const RadixConnectButton: React.FC<RadixConnectButtonProps> = ({rdt}) => {
-  const [isConnected, setIsConnected] = useState(false);
-  const [account, setAccount] = useState<string | null>(null);
 
   const handleConnect = async () => {
     try {
@@ -17,10 +14,10 @@ const RadixConnectButton: React.FC<RadixConnectButtonProps> = ({rdt}) => {
         builder.accounts().exactly(1)
       );
 
-      // Démarrer la connexion
-      const gatewayApi = GatewayApiClient.initialize(
-        rdt.gatewayApi.clientConfig,
-      )
+      /* // Démarrer la connexion
+       const gatewayApi = GatewayApiClient.initialize(
+         rdt.gatewayApi.clientConfig,
+       )*/
 
       rdt.walletApi.provideChallengeGenerator(async () => generateRolaChallenge())
 
@@ -43,16 +40,11 @@ const RadixConnectButton: React.FC<RadixConnectButtonProps> = ({rdt}) => {
 
   return (
     <div>
-      {!isConnected ? (
-        <button onClick={handleConnect} style={styles.button}>
-          Connect to Radix Wallet
-        </button>
-      ) : (
-        <div style={styles.connectedInfo}>
-          <p>Connected Account:</p>
-          <p style={styles.account}>{account}</p>
-        </div>
-      )}
+      <button onClick={handleConnect} style={styles.button}>
+        Connect to Radix Wallet
+      </button>
+      )
+
     </div>
   );
 };
