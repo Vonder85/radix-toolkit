@@ -1,5 +1,10 @@
 import React from 'react';
-import {DataRequestBuilder, generateRolaChallenge, RadixDappToolkit} from '@radixdlt/radix-dapp-toolkit';
+import {
+  DataRequestBuilder,
+  generateRolaChallenge,
+  OneTimeDataRequestBuilder,
+  RadixDappToolkit
+} from '@radixdlt/radix-dapp-toolkit';
 
 interface RadixConnectButtonProps {
   rdt: ReturnType<typeof RadixDappToolkit>; // Type pour le RadixDappToolkit instance
@@ -39,12 +44,21 @@ const RadixConnectButton: React.FC<RadixConnectButtonProps> = ({rdt}) => {
     }
   };
 
+  const oneTimeRequest = () => {
+    rdt.walletApi.sendOneTimeRequest(
+      OneTimeDataRequestBuilder.accounts().exactly(1),
+    )
+  }
+
+
   return (
     <div>
       <button onClick={handleConnect} style={styles.button}>
         Connect to Radix Wallet
       </button>
-      )
+      <button onClick={oneTimeRequest} style={styles.button}>
+        Ont Time Request
+      </button>
 
     </div>
   );
