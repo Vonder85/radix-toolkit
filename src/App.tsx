@@ -26,11 +26,7 @@ function App() {
    )*/
 
   rdt.walletApi.provideChallengeGenerator(async () => {
-    // Exemple de challenge
-    const challenge = {discriminator: 'no_challenge'};
-
-    // Retourner le challenge sous forme de chaîne JSON
-    return JSON.stringify(challenge);
+    return "simple-test-challenge"; // Chaîne statique
   });
 
   console.log('Challenge generator registered');
