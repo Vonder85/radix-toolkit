@@ -1,24 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {generateRolaChallenge, Logger, RadixDappToolkit, RadixNetwork} from "@radixdlt/radix-dapp-toolkit";
+import {GatewayApiClient} from "@radixdlt/babylon-gateway-api-sdk";
 
 function App() {
+  /* const storageModule = LocalStorageModule(
+     `rdt:${"account_rdx128uazakd5z2707m8t640swdvce3wnc4h8f38wmmq7fmqhdetcdpytu"}:${networkId}`,
+   )*/
+  const rdt = RadixDappToolkit({
+    dAppDefinitionAddress:
+      'account_rdx128uazakd5z2707m8t640swdvce3wnc4h8f38wmmq7fmqhdetcdpytu',
+    networkId: RadixNetwork.Mainnet,
+    applicationName: 'Radix Web3 dApp',
+    applicationVersion: '1.0.0',
+    logger: Logger(5)
+  })
+
+  console.log('Toolkit initialized:', rdt);
+  console.log('Wallet connection status:', rdt.walletApi.walletData$);
+
+  const gatewayApi = GatewayApiClient.initialize(
+    {
+      ...rdt.gatewayApi.clientConfig,
+      basePath: 'https://mainnet.radixdlt.com'
+    }// Pour le Mainnet
+  )
+
+  const result = rdt.walletApi.provideChallengeGenerator(async () => {
+    const challenge = await generateRolaChallenge();
+    return challenge;
+  });
+  console.log(result)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }
