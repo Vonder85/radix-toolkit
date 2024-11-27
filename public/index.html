@@ -28,14 +28,28 @@
 
 </head>
 <body>
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<header>
+    <radix-connect-button/>
+</header>
+<div id="app"></div>
 
 <script src="./radix-dapp-toolkit.bundle.umd.cjs"></script>
-
-<noscript>You need to enable JavaScript to run this app.</noscript>
-
-<div id="app"></div>
-<div id="root"></div>
-
--->
+<script>
+    const rdt = window.RDT.RadixDappToolkit({
+        dAppDefinitionAddress:
+            'account_rdx128uazakd5z2707m8t640swdvce3wnc4h8f38wmmq7fmqhdetcdpytu',
+        networkId: RDT.RadixNetwork.Mainnet,
+        applicationName: 'Radix Web3 dApp',
+        applicationVersion: '1.0.0',
+        logger: window.RDT.Logger(1),
+    })
+    console.log(rdt);
+</script>
 </body>
 </html>
