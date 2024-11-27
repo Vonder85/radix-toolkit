@@ -25,11 +25,16 @@ function App() {
      }// Pour le Mainnet
    )*/
 
-  /*const result = rdt.walletApi.provideChallengeGenerator(async () => {
-    const challenge = await generateRolaChallenge();
-    return challenge;
+  rdt.walletApi.provideChallengeGenerator(async () => {
+    // Exemple de challenge
+    const challenge = {discriminator: 'no_challenge'};
+
+    // Retourner le challenge sous forme de chaîne JSON
+    return JSON.stringify(challenge);
   });
-  console.log(result)*/
+
+  console.log('Challenge generator registered');
+
 
   return (
     <div className="App">
