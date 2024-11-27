@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import {generateRolaChallenge, Logger, RadixDappToolkit, RadixNetwork} from "@radixdlt/radix-dapp-toolkit";
-import {GatewayApiClient} from "@radixdlt/babylon-gateway-api-sdk";
 
 function App() {
   /* const storageModule = LocalStorageModule(
@@ -19,12 +18,12 @@ function App() {
   console.log('Toolkit initialized:', rdt);
   console.log('Wallet connection status:', rdt.walletApi.walletData$);
 
-  const gatewayApi = GatewayApiClient.initialize(
-    {
-      ...rdt.gatewayApi.clientConfig,
-      basePath: 'https://mainnet.radixdlt.com'
-    }// Pour le Mainnet
-  )
+  /* const gatewayApi = GatewayApiClient.initialize(
+     {
+       ...rdt.gatewayApi.clientConfig,
+       basePath: 'https://mainnet.radixdlt.com'
+     }// Pour le Mainnet
+   )*/
 
   const result = rdt.walletApi.provideChallengeGenerator(async () => {
     const challenge = await generateRolaChallenge();
