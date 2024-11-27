@@ -28,11 +28,7 @@ const App: React.FC = () => {
   );
 
   rdt.walletApi.provideChallengeGenerator(async () => generateRolaChallenge())
-
-  rdt.walletApi.setRequestData(
-    DataRequestBuilder.persona().withProof(),
-    DataRequestBuilder.accounts().atLeast(1),
-  )
+  
   /*
         if (result.data) {
           setIsConnected(true);
