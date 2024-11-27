@@ -12,12 +12,13 @@ const App = () => {
     applicationVersion: '1.0.0',
     logger: Logger(3),
   })
-  console.log(rdt);
-
-  const walletData = rdt.walletApi.getWalletData()
+  const getWalletData = () => {
+    const walletData = rdt.walletApi.getWalletData()
+    console.log(walletData)
+  }
   return (
     <div>
-      {JSON.stringify(walletData)}
+      <button onClick={getWalletData}>getWalletData</button>
     </div>);
 };
 
